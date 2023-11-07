@@ -5,8 +5,6 @@
 
 pragma solidity ^0.8.17;
 
-pragma solidity ^0.8.17;
-
 contract GAME is ERC20, Ownable, ReentrancyGuard {        
         constructor(string memory _name, string memory _symbol, address _newGuard, address _devWallet, address _lpWallet, address _deadWallet) 
             ERC20(_name, _symbol)
