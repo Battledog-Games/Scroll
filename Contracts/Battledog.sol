@@ -2,6 +2,7 @@
 // @title NFT Game by OxSorcerers for Battledog Games 
 // https://twitter.com/0xSorcerers | https://github.com/Dark-Viper | https://t.me/Oxsorcerer | https://t.me/battousainakamoto | https://t.me/darcViper
 
+
 pragma solidity ^0.8.17;
 
 interface Iburn {
@@ -537,24 +538,11 @@ contract battledog is ERC721Enumerable, Ownable, ReentrancyGuard {
         uint256 counter = 0;        
         for (uint256 i = 0; i < total; i++) {
           uint256 tokenId = tokenOfOwnerByIndex(_player, i);
-                result[tokenId] = players[tokenId];
+                result[counter] = players[tokenId];
                 counter++;
         }
         return result;
     } 
-
-    // function getPlayerOwners(address _player) public view returns (Player[] memory) {
-    //     Player[] memory result = new Player[](balanceOf(_player));
-    //     uint256 counter = 0;        
-    //     uint256 total = totalSupply();
-    //     for (uint256 i = 0; i < total; i++) {
-    //         if (ownerOf(i) == _player) {
-    //             result[counter] = players[i];
-    //             counter++;
-    //         }
-    //     }
-    //     return result;
-    // } 
     
     function addAssaulter(uint256 attackerId, uint256 defenderId, uint256 stolenPoints) internal {
         Assaulter memory assaulter = Assaulter({
@@ -619,4 +607,4 @@ contract battledog is ERC721Enumerable, Ownable, ReentrancyGuard {
     function setGuard (address _newGuard) external onlyGuard {
         guard = _newGuard;
     }
-}                 
+}
